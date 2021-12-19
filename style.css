@@ -1,0 +1,39 @@
+body{
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.heading{
+    color:#313131;
+    font-family: fantasy;
+    font-size: 40px;
+    background-color: #fff800;
+    width: 30%;
+    padding: 5px;
+    border: 2px dodgerblue dashed;
+    border-radius: 20px;
+}
+
+.note{
+    font-size: 20px;
+    color: #313131;
+    font-family: cursive;
+    background-color: #fff800;
+    width: 30%;
+    padding: 5px;
+    border: 2px dodgerblue dashed;
+    border-radius: 20px;
+}
+
+h3{
+    font-size: 20px;
+    color: #313131;
+    font-family: cursive;
+    background-color: #96d4f8;
+    width: 20%;
+    padding: 5px;
+    border: 2px dodgerblue dashed;
+    border-radius: 20px;
+}
