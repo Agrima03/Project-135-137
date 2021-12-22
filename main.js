@@ -11,7 +11,7 @@ function setup(){
 
 function start(){
     object_detector= ml5.objectDetector('cocossd',modelLoaded);
-    status= document.getElementById("status").innerHTML= "Status: Object Detecting";
+    document.getElementById("status").innerHTML= "Status: Object Detecting";
     object_name= document.getElementById("ob_name").value;
 }
 
@@ -33,30 +33,27 @@ function gotResults(error,result){
 function draw(){
     image(video,0,0,380,380);
     if(status != ""){
+        object_detector.detect(video,gotResults);
         for(i=0; i<object.length; i++){
-            percent= floor(object[i].confidence*100);
+            document.getElementById("status").innerHTML="Status: Object Detcted";
             fill("#fff800");
+            percent= floor(object[i].confidence*100);
             text(object[i].label+" "+percent+"%",object[i].x,object[i].y);
             stroke("#fff800");
-            nofill();
+            noFill();
             rect(object[i].x,object[i].y,object[i].width,object[i].height);
-        }
-    }
-    if(object.label == object_name){
+        
+    if(object[i].label == object_name){
         video.stop();
-        objectDetector.detect(gotResults);
-        document.getElementById("status").innerHTML=object_name+"is found";
-        function speak(){
-            var synth = window.speechSynthesis;
-        
-            speak_data = object_name+" is found";
-        
-            var utterThis = new SpeechSynthesisUtterance(speak_data);
-        
+        object_detector.detect(gotResults);
+        document.getElementById("object_found").innerHTML=object_name+" is found";
+            var synth = window.speechSynthesis;                
+            var utterThis = new SpeechSynthesisUtterance(object_name+"is found");        
             synth.speak(utterThis);
-        }
     }
     else{
-        document.getElementById("status").innerHTML= object_name+" is not found";
+        document.getElementById("object_found").innerHTML= object_name+" is not found";
     }
+}
+}
 }
