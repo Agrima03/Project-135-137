@@ -37,3 +37,8 @@ h3{
     border: 2px dodgerblue dashed;
     border-radius: 20px;
 }
+
+canvas{
+    border-radius: 10px;
+    border: 2px  darksalmon dashed;
+}
